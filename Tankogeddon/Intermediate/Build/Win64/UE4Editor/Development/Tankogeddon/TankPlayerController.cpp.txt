@@ -1,0 +1,5 @@
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Development\Tankogeddon\Definitions.Tankogeddon.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\TankPlayerController.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\TankPlayerController.generated.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\TankPawn.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\TankPawn.generated.h

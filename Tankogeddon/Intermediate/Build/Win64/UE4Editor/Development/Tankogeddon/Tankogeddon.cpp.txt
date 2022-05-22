@@ -1,0 +1,2 @@
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Development\Tankogeddon\Definitions.Tankogeddon.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\Tankogeddon.h

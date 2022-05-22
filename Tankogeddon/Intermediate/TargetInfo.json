@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Tankogeddon",
+			"Path": "C:\\Games\\Epic Games\\Unreal Projects\\GameProject---Tankogeddon\\Tankogeddon\\Source\\Tankogeddon.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "TankogeddonEditor",
+			"Path": "C:\\Games\\Epic Games\\Unreal Projects\\GameProject---Tankogeddon\\Tankogeddon\\Source\\TankogeddonEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

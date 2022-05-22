@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Games\\Epic Games\\Unreal Projects\\GameProject---Tankogeddon\\Tankogeddon\\Source\\Tankogeddon\\Tankogeddon.Build.cs",
+		"C:\\Games\\Epic Games\\Unreal Projects\\GameProject---Tankogeddon\\Tankogeddon\\Source\\Tankogeddon.Target.cs",
+		"C:\\Games\\Epic Games\\Unreal Projects\\GameProject---Tankogeddon\\Tankogeddon\\Source\\TankogeddonEditor.Target.cs"
+	],
+	"EngineVersion": "4.27.2"
+}
