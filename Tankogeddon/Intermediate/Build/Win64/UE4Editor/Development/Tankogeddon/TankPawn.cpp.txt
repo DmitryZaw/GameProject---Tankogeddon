@@ -1,7 +1,20 @@
 C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Development\Tankogeddon\Definitions.Tankogeddon.h
 C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\TankPawn.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\Cannon.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\GameStructs.h
+C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/UserDefinedStruct.h
+C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\UserDefinedStruct.generated.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\GameStructs.generated.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\Cannon.generated.h
 C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\TankPawn.generated.h
 C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
 C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
 C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
 C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\TankPlayerController.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\TankPlayerController.generated.h
+C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetMathLibrary.h
+C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetMathLibrary.generated.h
+C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\KismetMathLibrary.inl
+C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ArrowComponent.h
+C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ArrowComponent.generated.h

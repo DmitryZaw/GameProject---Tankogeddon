@@ -59,7 +59,8 @@ public: \
 
 
 #define Tankogeddon_Source_Tankogeddon_TankPlayerController_h_17_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__TankPawn() { return STRUCT_OFFSET(ATankPlayerController, TankPawn); }
+	FORCEINLINE static uint32 __PPO__TankPawn() { return STRUCT_OFFSET(ATankPlayerController, TankPawn); } \
+	FORCEINLINE static uint32 __PPO__MousePos() { return STRUCT_OFFSET(ATankPlayerController, MousePos); }
 
 
 #define Tankogeddon_Source_Tankogeddon_TankPlayerController_h_14_PROLOG
