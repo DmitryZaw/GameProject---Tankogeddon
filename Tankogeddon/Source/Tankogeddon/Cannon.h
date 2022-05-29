@@ -30,11 +30,16 @@ protected:
 	FTimerHandle ReloadTimerHandle;
 	bool ReadyToFire = false;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Fire params")
+	int StockOfShells = 2;
+
 public:	
 	// Sets default values for this actor's properties
 	ACannon();
 
 	void Fire();
+	
+	void FireSpecial();
 
 	bool IsReadyToFire();
 

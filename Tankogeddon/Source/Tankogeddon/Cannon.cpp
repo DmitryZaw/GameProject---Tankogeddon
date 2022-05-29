@@ -4,6 +4,7 @@
 #include "Cannon.h"
 #include "Components/ArrowComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/SceneComponent.h"
 #include "TimerManager.h"
 #include "Engine/Engine.h"
 
@@ -13,13 +14,12 @@ ACannon::ACannon()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	USceneComponent* sceeneCpm =
-		CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
+	USceneComponent* sceeneCpm = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 	RootComponent = sceeneCpm;
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cannon mesh"));
 	Mesh->SetupAttachment(RootComponent);
 	ProjectileSpawnPoint = CreateDefaultSubobject<UArrowComponent>(TEXT("Spawn point"));
-		ProjectileSpawnPoint->SetupAttachment(Mesh);
+	ProjectileSpawnPoint->SetupAttachment(Mesh);
 }
 
 void ACannon::Fire()
@@ -31,7 +31,15 @@ void ACannon::Fire()
 	ReadyToFire = false;
 	if (Type == ECannonType::FireProjectile)
 	{
-		GEngine->AddOnScreenDebugMessage(10, 1, FColor::Green, "Fire - projectile");
+		StockOfShells--;
+		if (StockOfShells > 0)
+		{
+			GEngine->AddOnScreenDebugMessage(10, 1, FColor::Green, "Fire - projectile");
+		}
+		else
+		{
+			GEngine->AddOnScreenDebugMessage(10, 1, FColor::Green, "No shells");
+		}
 	}
 	else
 	{
@@ -39,12 +47,33 @@ void ACannon::Fire()
 	}
 
 	GetWorld()->GetTimerManager().SetTimer(ReloadTimerHandle, this, &ACannon::Reload, 1 / FireRate, false);
+
+}
+
+void ACannon::FireSpecial()
+{
+	if (!ReadyToFire)
+	{
+		return;
+	}
+	ReadyToFire = false;
+	if (Type == ECannonType::FireProjectile)
+	{
+		GEngine->AddOnScreenDebugMessage(10, 3, FColor::Orange, "FireSpecial - projectile, 5 second");
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(10, 1, FColor::Green, "FireSpecial - trace");
+	}
+
+	GetWorld()->GetTimerManager().SetTimer(ReloadTimerHandle, this, &ACannon::Reload, 5 / FireRate, false);
 }
 
 bool ACannon::IsReadyToFire()
 {
 	return ReadyToFire;
 }
+
 void ACannon::Reload()
 {
 	ReadyToFire = true;

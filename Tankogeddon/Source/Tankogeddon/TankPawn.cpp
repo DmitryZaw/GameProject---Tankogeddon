@@ -74,6 +74,7 @@ void ATankPawn::SetupCannon()
 	Cannon = GetWorld()->SpawnActor<ACannon>(CannonClass, params);
 	Cannon->AttachToComponent(CannonSetupPoint, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 }
+
 void ATankPawn::Fire()
 {
 	if (Cannon)
@@ -82,6 +83,13 @@ void ATankPawn::Fire()
 	}
 }
 
+void ATankPawn::FireSpecial()
+{
+	if (Cannon)
+	{
+		Cannon->FireSpecial();
+	}
+}
 
 // Called every frame
 void ATankPawn::Tick(float DeltaTime)
@@ -97,7 +105,7 @@ void ATankPawn::Tick(float DeltaTime)
 
 	// Tank rotation
 	CurrentRightAxisValue = FMath::Lerp(CurrentRightAxisValue, TargetRightAxisValue, InterpolationKey);
-	UE_LOG(LogTemp, Warning, TEXT("CurrentRightAxisValue = %f TargetRightAxisValue = % f"), CurrentRightAxisValue, TargetRightAxisValue);
+	UE_LOG(LogTemp, Warning, TEXT("CurrentRightAxisValue = %f TargetRightAxisValue = %f"), CurrentRightAxisValue, TargetRightAxisValue);
 	float yawRotation = RotationSpeed * CurrentRightAxisValue * DeltaTime;
 	FRotator currentRotation = GetActorRotation();
 	yawRotation = currentRotation.Yaw + yawRotation;
@@ -108,8 +116,7 @@ void ATankPawn::Tick(float DeltaTime)
 	if (TankController)
 	{
 		FVector mousePos = TankController->GetMousePos();
-		FRotator targetRotation =
-			UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), mousePos);
+		FRotator targetRotation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), mousePos);
 		FRotator currRotation = TurretMesh->GetComponentRotation();
 		targetRotation.Pitch = currRotation.Pitch;
 		targetRotation.Roll = currRotation.Roll;
