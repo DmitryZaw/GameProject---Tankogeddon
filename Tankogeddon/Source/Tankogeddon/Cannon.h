@@ -8,6 +8,7 @@
 #include "Cannon.generated.h"
 
 class UArrowComponent;
+class AProjectile;
 
 UCLASS()
 class TANKOGEDDON_API ACannon : public AActor
@@ -31,7 +32,7 @@ protected:
 	bool ReadyToFire = false;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Fire params")
-	int StockOfShells = 2;
+	TSubclassOf<AProjectile> ProjectileClass;
 
 public:	
 	// Sets default values for this actor's properties
@@ -41,7 +42,12 @@ public:
 	
 	void FireSpecial();
 
+	void ChangeCannon();
+
 	bool IsReadyToFire();
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Fire params")
+	int StockOfShells = 3;
 
 protected:
 	// Called when the game starts or when spawned

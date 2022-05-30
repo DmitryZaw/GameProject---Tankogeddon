@@ -32,11 +32,10 @@ public:
 	void Fire();
 	UFUNCTION()
 	void FireSpecial();
+	UFUNCTION()
+	void ChangeCannon();
 
-
-protected:
-	void SetupCannon();
-
+	void SetupCannon(TSubclassOf<ACannon> cannonClass);
 
 protected:
 	// Called when the game starts or when spawned
@@ -73,6 +72,8 @@ protected:
 	UArrowComponent* CannonSetupPoint;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Turret|Cannon")
 	TSubclassOf<ACannon> CannonClass;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Turret|Cannon")
+	TSubclassOf<ACannon> ChangeCannonClass;
 	UPROPERTY()
 	ACannon* Cannon;
 

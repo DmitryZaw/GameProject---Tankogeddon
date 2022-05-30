@@ -16,6 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Tankogeddon_Source_Tankogeddon_TankPawn_h_19_SPARSE_DATA
 #define Tankogeddon_Source_Tankogeddon_TankPawn_h_19_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execChangeCannon); \
 	DECLARE_FUNCTION(execFireSpecial); \
 	DECLARE_FUNCTION(execFire); \
 	DECLARE_FUNCTION(execRotateRight); \
@@ -25,6 +26,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define Tankogeddon_Source_Tankogeddon_TankPawn_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execChangeCannon); \
 	DECLARE_FUNCTION(execFireSpecial); \
 	DECLARE_FUNCTION(execFire); \
 	DECLARE_FUNCTION(execRotateRight); \
@@ -86,6 +88,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__TankController() { return STRUCT_OFFSET(ATankPawn, TankController); } \
 	FORCEINLINE static uint32 __PPO__CannonSetupPoint() { return STRUCT_OFFSET(ATankPawn, CannonSetupPoint); } \
 	FORCEINLINE static uint32 __PPO__CannonClass() { return STRUCT_OFFSET(ATankPawn, CannonClass); } \
+	FORCEINLINE static uint32 __PPO__ChangeCannonClass() { return STRUCT_OFFSET(ATankPawn, ChangeCannonClass); } \
 	FORCEINLINE static uint32 __PPO__Cannon() { return STRUCT_OFFSET(ATankPawn, Cannon); }
 
 

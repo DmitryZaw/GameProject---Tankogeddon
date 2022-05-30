@@ -59,11 +59,15 @@ void ATankPawn::BeginPlay()
 	Super::BeginPlay();
 	TankController = Cast<ATankPlayerController>(GetController());
 
-	SetupCannon();
+	SetupCannon(CannonClass);
 }
 
-void ATankPawn::SetupCannon()
+void ATankPawn::SetupCannon(TSubclassOf<ACannon> cannonClass)
 {
+	if (cannonClass)
+	{
+		CannonClass = cannonClass;
+	}
 	if (Cannon)
 	{
 		Cannon->Destroy();
@@ -91,6 +95,14 @@ void ATankPawn::FireSpecial()
 	}
 }
 
+void ATankPawn::ChangeCannon()
+{
+	if (Cannon)
+	{
+		Cannon->ChangeCannon();
+	}
+}
+
 // Called every frame
 void ATankPawn::Tick(float DeltaTime)
 {
@@ -105,7 +117,7 @@ void ATankPawn::Tick(float DeltaTime)
 
 	// Tank rotation
 	CurrentRightAxisValue = FMath::Lerp(CurrentRightAxisValue, TargetRightAxisValue, InterpolationKey);
-	UE_LOG(LogTemp, Warning, TEXT("CurrentRightAxisValue = %f TargetRightAxisValue = %f"), CurrentRightAxisValue, TargetRightAxisValue);
+	//UE_LOG(LogTemp, Warning, TEXT("CurrentRightAxisValue = %f TargetRightAxisValue = %f"), CurrentRightAxisValue, TargetRightAxisValue);
 	float yawRotation = RotationSpeed * CurrentRightAxisValue * DeltaTime;
 	FRotator currentRotation = GetActorRotation();
 	yawRotation = currentRotation.Yaw + yawRotation;
