@@ -47,7 +47,7 @@ public:
 	bool IsReadyToFire();
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Fire params")
-	int StockOfShells = 3;
+	int StockOfShells = 10;
 
 protected:
 	// Called when the game starts or when spawned

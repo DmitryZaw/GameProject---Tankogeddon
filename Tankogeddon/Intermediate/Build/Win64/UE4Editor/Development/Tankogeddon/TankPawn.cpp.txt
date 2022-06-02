@@ -6,6 +6,14 @@ C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/UserDefi
 C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\UserDefinedStruct.generated.h
 C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\GameStructs.generated.h
 C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\Cannon.generated.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\DamageTaker.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\DamageTaker.generated.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Source\Tankogeddon\HealthComponent.h
+C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\HealthComponent.generated.h
+C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
 C:\Games\Epic Games\Unreal Projects\GameProject---Tankogeddon\Tankogeddon\Intermediate\Build\Win64\UE4Editor\Inc\Tankogeddon\TankPawn.generated.h
 C:\Games\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
 C:\Games\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h

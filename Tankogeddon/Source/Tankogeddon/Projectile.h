@@ -12,13 +12,13 @@ class TANKOGEDDON_API AProjectile : public AActor
 	GENERATED_BODY()
 protected:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
-		UStaticMeshComponent* Mesh;
+	UStaticMeshComponent* Mesh;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement|Speed")
-		float MoveSpeed = 100.0f;
+	float MoveSpeed = 100.0f;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement|Speed")
-		float MoveRate = 0.005f;
+	float MoveRate = 0.005f;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Damage")
-		float Damage = 1;
+	float Damage = 1;
 	FTimerHandle MovementTimerHandle;
 public:
 	AProjectile();

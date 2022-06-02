@@ -4,6 +4,9 @@
 
 #include "Cannon.h"
 #include "CoreMinimal.h"
+#include "DamageTaker.h"
+#include "HealthComponent.h"
+#include "Components/BoxComponent.h"
 #include "GameFramework/Pawn.h"
 #include "TankPawn.generated.h"
 
@@ -14,7 +17,7 @@ class ATankPlayerController;
 class ACannon;
 
 UCLASS()
-class TANKOGEDDON_API ATankPawn : public APawn
+class TANKOGEDDON_API ATankPawn : public APawn, public IDamageTaker
 {
 	GENERATED_BODY()
 
@@ -77,12 +80,25 @@ protected:
 	UPROPERTY()
 	ACannon* Cannon;
 
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
+	UHealthComponent* HealthComponent;
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
+	UBoxComponent* HitCollider;
+
+	UFUNCTION()
+	void Die();
+	UFUNCTION()
+	void DamageTaked(float DamageValue);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UFUNCTION()
+	void TakeDamage(FDamageData DamageData);
 
 };
 

@@ -36,6 +36,13 @@ ATankPawn::ATankPawn()
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm);
+
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health component"));
+	HealthComponent->OnDie.AddUObject(this, &ATankPawn::Die);
+	HealthComponent->OnDamaged.AddUObject(this, &ATankPawn::DamageTaked);
+	HitCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("Hit collider"));
+	HitCollider->SetupAttachment(BodyMesh);
+
 }
 
 void ATankPawn::MoveForward(float AxisValue)
@@ -141,4 +148,17 @@ void ATankPawn::Tick(float DeltaTime)
 void ATankPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+}
+
+void ATankPawn::TakeDamage(FDamageData DamageData)
+{
+	HealthComponent->TakeDamage(DamageData);
+}
+void ATankPawn::Die()
+{
+	Destroy();
+}
+void ATankPawn::DamageTaked(float DamageValue)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Tank %s taked damage:%f Health:%f"), *GetName(), DamageValue, HealthComponent->GetHealth());
 }

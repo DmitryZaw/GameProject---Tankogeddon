@@ -65,12 +65,35 @@ void ACannon::Fire()
 		FVector end = ProjectileSpawnPoint->GetForwardVector() * FireRange + start;
 		if (GetWorld()->LineTraceSingleByChannel(hitResult, start, end, ECollisionChannel::ECC_Visibility, traceParams))
 		{
-			DrawDebugLine(GetWorld(), start, hitResult.Location, FColor::Red, false,
-				0.5f, 0, 5);
-			if (hitResult.Actor.Get())
+			DrawDebugLine(GetWorld(), start, hitResult.Location, FColor::Red, false, 0.5f, 0, 5);
+			//if (hitResult.Actor.Get())
+			//{
+			//	hitResult.Actor.Get()->Destroy();
+			//}
+
+			class AActor* OtherActor{};
+
+			UE_LOG(LogTemp, Warning, TEXT("Trace %s collided with %s. "), *GetName(), *OtherActor->GetName());
+			AActor* owner = GetOwner();
+			AActor* ownerByOwner = owner != nullptr ? owner->GetOwner() : nullptr;
+			if (OtherActor != owner && OtherActor != ownerByOwner)
 			{
-				hitResult.Actor.Get()->Destroy();
+				IDamageTaker* damageTakerActor = Cast<IDamageTaker>(OtherActor);
+				if (damageTakerActor)
+				{
+					FDamageData damageData;
+					damageData.DamageValue = FireDamage;
+					damageData.Instigator = owner;
+					damageData.DamageMaker = this;
+					damageTakerActor->TakeDamage(damageData);
+				}
+				else
+				{
+					OtherActor->Destroy();
+				}
+				Destroy();
 			}
+
 		}
 		else
 		{
