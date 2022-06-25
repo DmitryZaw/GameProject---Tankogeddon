@@ -85,6 +85,12 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
 	UBoxComponent* HitCollider;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI|Move params|Patrol points" , Meta = (MakeEditWidget = true))
+	TArray<FVector> PatrollingPoints;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI|Move params | Accurency")
+	float MovementAccurency = 50;
+
+
 	UFUNCTION()
 	void Die();
 	UFUNCTION()
@@ -100,5 +106,16 @@ public:
 	UFUNCTION()
 	void TakeDamage(FDamageData DamageData);
 
+	UFUNCTION()
+	TArray<FVector> GetPatrollingPoints() { return PatrollingPoints; };
+	UFUNCTION()
+	float GetMovementAccurency() { return MovementAccurency; };
+
+	UFUNCTION()
+	FVector GetTurretForwardVector();
+	UFUNCTION()
+	void RotateTurretTo(FVector TargetPosition);
+
+	FVector GetEyesPosition();
 };
 

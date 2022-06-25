@@ -5,6 +5,11 @@
 #include "CoreMinimal.h"
 #include "GameStructs.h"
 #include "GameFramework/Actor.h"
+#include "Camera/CameraShakeBase.h"
+#include "Components/AudioComponent.h"
+#include "GameFramework/Actor.h"
+#include "GameFramework/ForceFeedbackEffect.h"
+#include "Particles/ParticleSystemComponent.h"
 #include "Cannon.generated.h"
 
 class UArrowComponent;
@@ -33,6 +38,12 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Fire params")
 	TSubclassOf<AProjectile> ProjectileClass;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
+	class UParticleSystemComponent* ShootEffect;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
+	class UAudioComponent* AudioEffect;
 
 public:	
 	// Sets default values for this actor's properties

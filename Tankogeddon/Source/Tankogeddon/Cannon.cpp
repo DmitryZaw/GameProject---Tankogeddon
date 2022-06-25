@@ -23,6 +23,10 @@ ACannon::ACannon()
 	Mesh->SetupAttachment(RootComponent);
 	ProjectileSpawnPoint = CreateDefaultSubobject<UArrowComponent>(TEXT("Spawn point"));
 	ProjectileSpawnPoint->SetupAttachment(Mesh);
+
+	ShootEffect = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ShootEffect"));
+	ShootEffect->SetupAttachment(ProjectileSpawnPoint);
+	AudioEffect = CreateDefaultSubobject<UAudioComponent>(TEXT("AudioComponent"));
 }
 
 void ACannon::Fire()
@@ -32,6 +36,10 @@ void ACannon::Fire()
 		return;
 	}
 	ReadyToFire = false;
+
+	ShootEffect->ActivateSystem();
+	AudioEffect->Play();
+
 	if (Type == ECannonType::FireProjectile)
 	{
 		StockOfShells--;

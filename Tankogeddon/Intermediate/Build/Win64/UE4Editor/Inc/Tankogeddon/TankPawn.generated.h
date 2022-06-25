@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FVector;
 struct FDamageData;
 #ifdef TANKOGEDDON_TankPawn_generated_h
 #error "TankPawn.generated.h already included, missing '#pragma once' in TankPawn.h"
@@ -17,6 +18,10 @@ struct FDamageData;
 #define Tankogeddon_Source_Tankogeddon_TankPawn_h_22_SPARSE_DATA
 #define Tankogeddon_Source_Tankogeddon_TankPawn_h_22_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execRotateTurretTo); \
+	DECLARE_FUNCTION(execGetTurretForwardVector); \
+	DECLARE_FUNCTION(execGetMovementAccurency); \
+	DECLARE_FUNCTION(execGetPatrollingPoints); \
 	DECLARE_FUNCTION(execTakeDamage); \
 	DECLARE_FUNCTION(execDamageTaked); \
 	DECLARE_FUNCTION(execDie); \
@@ -30,6 +35,10 @@ struct FDamageData;
 
 #define Tankogeddon_Source_Tankogeddon_TankPawn_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execRotateTurretTo); \
+	DECLARE_FUNCTION(execGetTurretForwardVector); \
+	DECLARE_FUNCTION(execGetMovementAccurency); \
+	DECLARE_FUNCTION(execGetPatrollingPoints); \
 	DECLARE_FUNCTION(execTakeDamage); \
 	DECLARE_FUNCTION(execDamageTaked); \
 	DECLARE_FUNCTION(execDie); \
@@ -100,7 +109,9 @@ public: \
 	FORCEINLINE static uint32 __PPO__ChangeCannonClass() { return STRUCT_OFFSET(ATankPawn, ChangeCannonClass); } \
 	FORCEINLINE static uint32 __PPO__Cannon() { return STRUCT_OFFSET(ATankPawn, Cannon); } \
 	FORCEINLINE static uint32 __PPO__HealthComponent() { return STRUCT_OFFSET(ATankPawn, HealthComponent); } \
-	FORCEINLINE static uint32 __PPO__HitCollider() { return STRUCT_OFFSET(ATankPawn, HitCollider); }
+	FORCEINLINE static uint32 __PPO__HitCollider() { return STRUCT_OFFSET(ATankPawn, HitCollider); } \
+	FORCEINLINE static uint32 __PPO__PatrollingPoints() { return STRUCT_OFFSET(ATankPawn, PatrollingPoints); } \
+	FORCEINLINE static uint32 __PPO__MovementAccurency() { return STRUCT_OFFSET(ATankPawn, MovementAccurency); }
 
 
 #define Tankogeddon_Source_Tankogeddon_TankPawn_h_19_PROLOG

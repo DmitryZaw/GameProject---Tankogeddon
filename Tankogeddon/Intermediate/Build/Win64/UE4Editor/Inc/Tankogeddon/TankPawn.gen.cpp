@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 	TANKOGEDDON_API UClass* Z_Construct_UClass_ATankPawn();
 	ENGINE_API UClass* Z_Construct_UClass_APawn();
 	UPackage* Z_Construct_UPackage__Script_Tankogeddon();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	TANKOGEDDON_API UScriptStruct* Z_Construct_UScriptStruct_FDamageData();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -29,6 +30,35 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	TANKOGEDDON_API UClass* Z_Construct_UClass_UDamageTaker_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ATankPawn::execRotateTurretTo)
+	{
+		P_GET_STRUCT(FVector,Z_Param_TargetPosition);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->RotateTurretTo(Z_Param_TargetPosition);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ATankPawn::execGetTurretForwardVector)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector*)Z_Param__Result=P_THIS->GetTurretForwardVector();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ATankPawn::execGetMovementAccurency)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(float*)Z_Param__Result=P_THIS->GetMovementAccurency();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ATankPawn::execGetPatrollingPoints)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TArray<FVector>*)Z_Param__Result=P_THIS->GetPatrollingPoints();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ATankPawn::execTakeDamage)
 	{
 		P_GET_STRUCT(FDamageData,Z_Param_DamageData);
@@ -106,9 +136,13 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 			{ "Die", &ATankPawn::execDie },
 			{ "Fire", &ATankPawn::execFire },
 			{ "FireSpecial", &ATankPawn::execFireSpecial },
+			{ "GetMovementAccurency", &ATankPawn::execGetMovementAccurency },
+			{ "GetPatrollingPoints", &ATankPawn::execGetPatrollingPoints },
+			{ "GetTurretForwardVector", &ATankPawn::execGetTurretForwardVector },
 			{ "MoveForward", &ATankPawn::execMoveForward },
 			{ "MoveRight", &ATankPawn::execMoveRight },
 			{ "RotateRight", &ATankPawn::execRotateRight },
+			{ "RotateTurretTo", &ATankPawn::execRotateTurretTo },
 			{ "TakeDamage", &ATankPawn::execTakeDamage },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -233,6 +267,105 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics
+	{
+		struct TankPawn_eventGetMovementAccurency_Parms
+		{
+			float ReturnValue;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(TankPawn_eventGetMovementAccurency_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "TankPawn.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATankPawn, nullptr, "GetMovementAccurency", nullptr, nullptr, sizeof(TankPawn_eventGetMovementAccurency_Parms), Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATankPawn_GetMovementAccurency()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ATankPawn_GetMovementAccurency_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics
+	{
+		struct TankPawn_eventGetPatrollingPoints_Parms
+		{
+			TArray<FVector> ReturnValue;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(TankPawn_eventGetPatrollingPoints_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::NewProp_ReturnValue_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "TankPawn.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATankPawn, nullptr, "GetPatrollingPoints", nullptr, nullptr, sizeof(TankPawn_eventGetPatrollingPoints_Parms), Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATankPawn_GetPatrollingPoints()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ATankPawn_GetPatrollingPoints_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics
+	{
+		struct TankPawn_eventGetTurretForwardVector_Parms
+		{
+			FVector ReturnValue;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(TankPawn_eventGetTurretForwardVector_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "TankPawn.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATankPawn, nullptr, "GetTurretForwardVector", nullptr, nullptr, sizeof(TankPawn_eventGetTurretForwardVector_Parms), Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00820401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATankPawn_GetTurretForwardVector()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ATankPawn_GetTurretForwardVector_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ATankPawn_MoveForward_Statics
 	{
 		struct TankPawn_eventMoveForward_Parms
@@ -326,6 +459,38 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ATankPawn_RotateRight_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics
+	{
+		struct TankPawn_eventRotateTurretTo_Parms
+		{
+			FVector TargetPosition;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_TargetPosition;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::NewProp_TargetPosition = { "TargetPosition", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(TankPawn_eventRotateTurretTo_Parms, TargetPosition), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::NewProp_TargetPosition,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "TankPawn.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATankPawn, nullptr, "RotateTurretTo", nullptr, nullptr, sizeof(TankPawn_eventRotateTurretTo_Parms), Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00820401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATankPawn_RotateTurretTo()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ATankPawn_RotateTurretTo_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -432,6 +597,15 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HitCollider_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HitCollider;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_PatrollingPoints_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PatrollingPoints_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_PatrollingPoints;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MovementAccurency_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MovementAccurency;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -447,9 +621,13 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 		{ &Z_Construct_UFunction_ATankPawn_Die, "Die" }, // 3798589048
 		{ &Z_Construct_UFunction_ATankPawn_Fire, "Fire" }, // 3648692876
 		{ &Z_Construct_UFunction_ATankPawn_FireSpecial, "FireSpecial" }, // 68521308
+		{ &Z_Construct_UFunction_ATankPawn_GetMovementAccurency, "GetMovementAccurency" }, // 1143141944
+		{ &Z_Construct_UFunction_ATankPawn_GetPatrollingPoints, "GetPatrollingPoints" }, // 4118721959
+		{ &Z_Construct_UFunction_ATankPawn_GetTurretForwardVector, "GetTurretForwardVector" }, // 1794061069
 		{ &Z_Construct_UFunction_ATankPawn_MoveForward, "MoveForward" }, // 2478646255
 		{ &Z_Construct_UFunction_ATankPawn_MoveRight, "MoveRight" }, // 2881576665
 		{ &Z_Construct_UFunction_ATankPawn_RotateRight, "RotateRight" }, // 3524979340
+		{ &Z_Construct_UFunction_ATankPawn_RotateTurretTo, "RotateTurretTo" }, // 2373408946
 		{ &Z_Construct_UFunction_ATankPawn_TakeDamage, "TakeDamage" }, // 3599143384
 	};
 #if WITH_METADATA
@@ -569,6 +747,22 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATankPawn_Statics::NewProp_HitCollider = { "HitCollider", nullptr, (EPropertyFlags)0x00200800000b000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATankPawn, HitCollider), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATankPawn_Statics::NewProp_HitCollider_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATankPawn_Statics::NewProp_HitCollider_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ATankPawn_Statics::NewProp_PatrollingPoints_Inner = { "PatrollingPoints", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATankPawn_Statics::NewProp_PatrollingPoints_MetaData[] = {
+		{ "Category", "AI|Move params|Patrol points" },
+		{ "MakeEditWidget", "TRUE" },
+		{ "ModuleRelativePath", "TankPawn.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ATankPawn_Statics::NewProp_PatrollingPoints = { "PatrollingPoints", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATankPawn, PatrollingPoints), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ATankPawn_Statics::NewProp_PatrollingPoints_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATankPawn_Statics::NewProp_PatrollingPoints_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATankPawn_Statics::NewProp_MovementAccurency_MetaData[] = {
+		{ "Category", "AI|Move params | Accurency" },
+		{ "ModuleRelativePath", "TankPawn.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATankPawn_Statics::NewProp_MovementAccurency = { "MovementAccurency", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATankPawn, MovementAccurency), METADATA_PARAMS(Z_Construct_UClass_ATankPawn_Statics::NewProp_MovementAccurency_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATankPawn_Statics::NewProp_MovementAccurency_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATankPawn_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATankPawn_Statics::NewProp_BodyMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATankPawn_Statics::NewProp_TurretMesh,
@@ -585,6 +779,9 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATankPawn_Statics::NewProp_Cannon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATankPawn_Statics::NewProp_HealthComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATankPawn_Statics::NewProp_HitCollider,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATankPawn_Statics::NewProp_PatrollingPoints_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATankPawn_Statics::NewProp_PatrollingPoints,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATankPawn_Statics::NewProp_MovementAccurency,
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ATankPawn_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UDamageTaker_NoRegister, (int32)VTABLE_OFFSET(ATankPawn, IDamageTaker), false },
@@ -616,7 +813,7 @@ void EmptyLinkFunctionForGeneratedCodeTankPawn() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATankPawn, 2927782614);
+	IMPLEMENT_CLASS(ATankPawn, 568764);
 	template<> TANKOGEDDON_API UClass* StaticClass<ATankPawn>()
 	{
 		return ATankPawn::StaticClass();
