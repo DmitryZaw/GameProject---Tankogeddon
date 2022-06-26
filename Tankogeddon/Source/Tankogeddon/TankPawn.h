@@ -7,6 +7,7 @@
 #include "DamageTaker.h"
 #include "HealthComponent.h"
 #include "Components/BoxComponent.h"
+#include "Engine/TargetPoint.h"
 #include "GameFramework/Pawn.h"
 #include "TankPawn.generated.h"
 
@@ -15,6 +16,7 @@ class UCameraComponent;
 class USpringArmComponent;
 class ATankPlayerController;
 class ACannon;
+class ATargetPoint;
 
 UCLASS()
 class TANKOGEDDON_API ATankPawn : public APawn, public IDamageTaker
@@ -86,7 +88,7 @@ protected:
 	UBoxComponent* HitCollider;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI|Move params|Patrol points" , Meta = (MakeEditWidget = true))
-	TArray<FVector> PatrollingPoints;
+	TArray<ATargetPoint*> PatrollingPoints;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI|Move params | Accurency")
 	float MovementAccurency = 50;
 
@@ -107,7 +109,9 @@ public:
 	void TakeDamage(FDamageData DamageData);
 
 	UFUNCTION()
-	TArray<FVector> GetPatrollingPoints() { return PatrollingPoints; };
+	TArray<FVector> GetPatrollingPoints();
+	void SetPatrollingPoints(TArray<ATargetPoint*> NewPatrollingPoints);
+
 	UFUNCTION()
 	float GetMovementAccurency() { return MovementAccurency; };
 

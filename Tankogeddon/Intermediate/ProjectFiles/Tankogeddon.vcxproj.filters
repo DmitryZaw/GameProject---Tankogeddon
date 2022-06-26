@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Tankogeddon.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{AF123070-7A9F-4495-9907-2E5751EC0425}</UniqueIdentifier>
+      <UniqueIdentifier>{F0CFBBC3-9818-4613-A8BE-4D85BDBEDA0C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Tankogeddon.Target.cs">
       <Filter>Source</Filter>
@@ -13,7 +13,7 @@
     </None>
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{E5194A18-E8D4-4CE3-84AE-14E73693BED3}</UniqueIdentifier>
+      <UniqueIdentifier>{31DB8125-433D-415C-9A3D-4A84E76774B8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -28,7 +28,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Tankogeddon">
-      <UniqueIdentifier>{846A5ABF-AF8C-4B52-9EBC-B064D431B310}</UniqueIdentifier>
+      <UniqueIdentifier>{6F734CE0-EF60-42BD-B543-1605445493D6}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Tankogeddon\AmmoBox.cpp">
       <Filter>Source\Tankogeddon</Filter>
@@ -64,6 +64,12 @@
       <Filter>Source\Tankogeddon</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Tankogeddon\HealthComponent.h">
+      <Filter>Source\Tankogeddon</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Tankogeddon\MapLoader.cpp">
+      <Filter>Source\Tankogeddon</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Tankogeddon\MapLoader.h">
       <Filter>Source\Tankogeddon</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Tankogeddon\Projectile.cpp">
