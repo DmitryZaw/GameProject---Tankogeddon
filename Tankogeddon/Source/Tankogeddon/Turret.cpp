@@ -35,6 +35,18 @@ ATurret::ATurret()
 		BodyMesh->SetStaticMesh(bodyMeshTemp);
 }
 
+void ATurret::PostInitializeComponents()
+{
+	Super::PostInitializeComponents();
+	UStaticMesh* turretMeshTemp = LoadObject<UStaticMesh>(this, *TurretMeshPath);
+	if (turretMeshTemp)
+	TurretMesh->SetStaticMesh(turretMeshTemp);
+	UStaticMesh* bodyMeshTemp = LoadObject<UStaticMesh>(this, *BodyMeshPath);
+	if (bodyMeshTemp)
+	BodyMesh->SetStaticMesh(bodyMeshTemp);
+}
+
+
 // Called when the game starts or when spawned
 void ATurret::BeginPlay()
 {
