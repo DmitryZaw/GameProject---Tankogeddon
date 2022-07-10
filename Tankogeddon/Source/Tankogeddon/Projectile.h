@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Particles/ParticleSystemComponent.h"
 #include "Projectile.generated.h"
 
 UCLASS()
@@ -22,7 +23,13 @@ protected:
 	FTimerHandle MovementTimerHandle;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Damage")
-	float PushForce = 1000;
+	float PushForce = 1000.0f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Explode")
+	float ExplodeRadiusN = 10.0f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "PhysicsProjectile")
+	bool PhysicsProjectileStyle = true;
 
 public:
 	AProjectile();
@@ -34,5 +41,7 @@ protected:
 			bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
 	virtual void Move();
+
+	void Explode();
 };
 

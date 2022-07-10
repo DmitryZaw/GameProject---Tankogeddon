@@ -25,6 +25,9 @@ ATankFactory::ATankFactory()
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health component"));
 	HealthComponent->OnDie.AddUObject(this, &ATankFactory::Die);
 	HealthComponent->OnDamaged.AddUObject(this, &ATankFactory::DamageTaked);
+
+	CreatingTanksEffect = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("CreatingTanksEffect"));
+	DestroyTanksEffect = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("DestroyTanksEffect"));
 }
 
 // Called when the game starts or when spawned
@@ -46,6 +49,8 @@ void ATankFactory::TakeDamage(FDamageData DamageData)
 
 void ATankFactory::Die()
 {
+	DestroyTanksEffect->ActivateSystem();
+
 	if (LinkedMapLoader)
 		LinkedMapLoader->SetIsActivated(true);
 
@@ -60,6 +65,9 @@ void ATankFactory::DamageTaked(float DamageValue)
 void ATankFactory::SpawnNewTank()
 {
 	FTransform spawnTransform(TankSpawnPoint->GetComponentRotation(), TankSpawnPoint->GetComponentLocation(), FVector(1));
+
+	CreatingTanksEffect->ActivateSystem();
+
 	ATankPawn* newTank = GetWorld()->SpawnActorDeferred<ATankPawn>(SpawnTankClass, spawnTransform, this, nullptr, ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 	//
 	newTank->SetPatrollingPoints(TankWayPoints);

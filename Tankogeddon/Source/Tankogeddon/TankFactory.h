@@ -36,6 +36,12 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn tanks params")
 	AMapLoader* LinkedMapLoader;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components")
+	UParticleSystemComponent* CreatingTanksEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components")
+	UParticleSystemComponent* DestroyTanksEffect;
+
 	
 public:	
 	// Sets default values for this actor's properties
